@@ -1,11 +1,15 @@
 
-# prompt
+![](prompt.png)
 
-> Dynamic Prompt
+# prompt
 
 Dynamic Prompt
 
 ## Installation
+
+```
+install_github( "ThinkRstat/prompt" )
+```
 
 ## Usage
 
