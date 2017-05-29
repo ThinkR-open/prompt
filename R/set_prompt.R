@@ -20,7 +20,6 @@ set_prompt <- function( fun ){
 #' @export
 #' @name set_prompt
 reset_prompt <- function(){
-  invisible( removeTaskCallback("prompt::prompt") )
   options( prompt = "> " )
-  
+  invisible( removeTaskCallback("prompt::prompt") )
 }
