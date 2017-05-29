@@ -18,6 +18,8 @@ TRUE
 })
 ```
 
+![](example.png)
+
 in a way that can be configured. Things we might want to display: 
 
 - current time
