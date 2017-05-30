@@ -1,52 +1,69 @@
-
 ![](prompt.png)
 
-# prompt
+prompt
+======
 
-Dynamic Prompt. The idea is to leverage `addTaskCallback` to update the prompt 
-dynamically, e.g. 
+Dynamic Prompt.
 
-```{ r eval = FALSE}
-set_prompt( ~ "{h}> " )
+Usage
+=====
+
+This use `glue` to expand the function passed in, with the follwing bindings available:
+
+-   `t` the current time, in format "%H:%M:%S"
+-   `v` the version of R
+-   `V` the version of R, including the svn revision
+-   `u` the user name
+-   `g` the github user name
+-   `m` the memory currently used by R
+-   `w` the current working directory
+
+``` r
+set_prompt( ~ "{t}> " )
 set_prompt( ~ "{w}> " )
-set_prompt( ~ "{m} {t} {w}> ")
+set_prompt( ~ "[{m}] {t} {w}> ")
 ```
 
-You can use `expand_prompt` to experiment : 
+You can use `expand_prompt` to experiment :
 
-```{r}
-expand_prompt( ~ "{h}> " )
+``` r
+expand_prompt( ~ "{t}> " )
+```
+
+    ## 11:39:42>
+
+``` r
 expand_prompt( ~ "{w}> " )
-expand_prompt( ~ "{m} {t} {w}> ")
 ```
 
+    ## /Users/romain/git/prompt>
 
-
-![](example.png)
-
-in a way that can be configured. Things we might want to display: 
-
-- current time
-- memory used `pryr::mem_used`
-- current working directory, maybe slightly differently when it's not the directory of the current rstudio project
-- are we developping a package ? Do we need to rebuild it ? 
-- are we sync with github
-- R version
-- ...
-- (please add your own with PR)
-
-## Installation
-
-```
-install_github( "ThinkRstat/prompt" )
+``` r
+expand_prompt( ~ "[{m}] {t} {w}> ")
 ```
 
-## Usage
+    ## [36 MB] 11:39:42 /Users/romain/git/prompt>
 
-```r
-library(prompt)
-```
+Installation
+------------
 
-## License
+    install_github( "ThinkRstat/prompt" )
 
-MIT + file LICENSE © 
+Initial ideas
+-------------
+
+in a way that can be configured. Things we might want to display:
+
+-   current time
+-   memory used `pryr::mem_used`
+-   current working directory, maybe slightly differently when it's not the directory of the current rstudio project
+-   are we developping a package ? Do we need to rebuild it ?
+-   are we sync with github
+-   R version
+-   ...
+-   (please add your own with PR)
+
+License
+-------
+
+MIT + file LICENSE ©

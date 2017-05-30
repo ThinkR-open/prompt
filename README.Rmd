@@ -1,3 +1,10 @@
+---
+title: "prompt"
+author: Romain Francois
+output:
+  md_document:
+    variant: markdown_github
+---
 
 ```{r, echo=FALSE, print=FALSE}
 library("prompt")
