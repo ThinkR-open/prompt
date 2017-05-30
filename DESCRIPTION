@@ -9,5 +9,6 @@ LazyData: true
 URL: https://github.com/ThinkRstat/prompt
 BugReports: https://github.com/ThinkRstat/prompt/issues
 RoxygenNote: 6.0.1.9000
-Imports: rlang
+Imports: rlang,
+    glue
 Encoding: UTF-8

@@ -1,18 +1,23 @@
 
 #' Set the dynamic prompt
 #' 
-#' @param fun whatever \code{\link[rlang]{as_function}} can turn into a function with no parameters
+#' @param fun whatever \code{\link[rlang]{as_function}} can turn into 
+#'   a function with no parameters
 #' 
 #' @examples
 #' set_prompt( ~"R> " )
 #' set_prompt( ~paste( format(Sys.time(), "%H:%M:%S"), " > " ) )
 #' 
+#' # example using glue
+#' set_prompt( ~ "{getwd()} >" )
+#' 
 #' @importFrom rlang as_function
+#' @importFrom glue glue
 #' @export
 set_prompt <- function( fun ){
   fun <- as_function(fun)
   invisible(addTaskCallback( function(expr, value, ok, visible){
-    options( prompt = fun() )
+  options( prompt = glue(fun()) )
     TRUE
   }, name = "prompt::prompt" ))
 }

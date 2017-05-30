@@ -11,7 +11,8 @@ set_prompt(fun)
 reset_prompt()
 }
 \arguments{
-\item{fun}{whatever \code{\link[rlang]{as_function}} can turn into a function with no parameters}
+\item{fun}{whatever \code{\link[rlang]{as_function}} can turn into 
+a function with no parameters}
 }
 \description{
 Set the dynamic prompt
@@ -19,5 +20,8 @@ Set the dynamic prompt
 \examples{
 set_prompt( ~"R> " )
 set_prompt( ~paste( format(Sys.time(), "\%H:\%M:\%S"), " > " ) )
+
+# example using glue
+set_prompt( ~ "{getwd()} >" )
 
 }

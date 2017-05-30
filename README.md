@@ -7,15 +7,16 @@ Dynamic Prompt. The idea is to leverage `addTaskCallback` to update the prompt
 dynamically, e.g. 
 
 ```r
-addTaskCallback(function(expr, value, ok, visible) {
-prompt <- sprintf( "(%s) %s [%s] > ", 
+set_prompt( ~ paste( format(Sys.time(), "%H:%M:%S"), " > " ) )
+
+set_prompt( ~ "{getwd()} >" )
+
+set_prompt( ~sprintf( "(%s) %s [%s] > ", 
     capture.output(print(pryr::mem_used())), 
     format( Sys.time(), "%H:%M:%S" ), 
     getwd()
-  ) 
-  options( prompt = prompt)
-TRUE
-})
+))
+
 ```
 
 ![](example.png)

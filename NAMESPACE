@@ -2,4 +2,5 @@
 
 export(reset_prompt)
 export(set_prompt)
+importFrom(glue,glue)
 importFrom(rlang,as_function)
