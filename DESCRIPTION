@@ -3,12 +3,17 @@ Title: Dynamic Prompt
 Version: 1.0.0
 Author: Romain François
 Maintainer: Romain François <romain@thinkr.fr>
-Description: Dynamic Prompt
+Description: Dynamic Prompt.
 License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/ThinkRstat/prompt
 BugReports: https://github.com/ThinkRstat/prompt/issues
 RoxygenNote: 6.0.1.9000
 Imports: rlang,
-    glue
+    glue,
+    whoami,
+    pryr,
+    utils,
+    purrr,
+    memoise
 Encoding: UTF-8

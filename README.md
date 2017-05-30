@@ -6,18 +6,21 @@
 Dynamic Prompt. The idea is to leverage `addTaskCallback` to update the prompt 
 dynamically, e.g. 
 
-```r
-set_prompt( ~ paste( format(Sys.time(), "%H:%M:%S"), " > " ) )
-
-set_prompt( ~ "{getwd()} >" )
-
-set_prompt( ~sprintf( "(%s) %s [%s] > ", 
-    capture.output(print(pryr::mem_used())), 
-    format( Sys.time(), "%H:%M:%S" ), 
-    getwd()
-))
-
+```{ r eval = FALSE}
+set_prompt( ~ "{h}> " )
+set_prompt( ~ "{w}> " )
+set_prompt( ~ "{m} {t} {w}> ")
 ```
+
+You can use `expand_prompt` to experiment : 
+
+```{r}
+expand_prompt( ~ "{h}> " )
+expand_prompt( ~ "{w}> " )
+expand_prompt( ~ "{m} {t} {w}> ")
+```
+
+
 
 ![](example.png)
 

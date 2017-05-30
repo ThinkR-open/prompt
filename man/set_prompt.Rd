@@ -4,11 +4,15 @@
 \alias{set_prompt}
 \alias{set_prompt}
 \alias{reset_prompt}
+\alias{set_prompt}
+\alias{expand_prompt}
 \title{Set the dynamic prompt}
 \usage{
 set_prompt(fun)
 
 reset_prompt()
+
+expand_prompt(fun)
 }
 \arguments{
 \item{fun}{whatever \code{\link[rlang]{as_function}} can turn into 
