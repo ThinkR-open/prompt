@@ -46,12 +46,17 @@ expand_prompt <- function( fun ){
   glue(f())
 }
 
-.gh_username <- memoise(gh_username)
+.gh_username <- memoise(function(){
+  gh_username(fallback = "")
+})
+.username <- memoise(function(){
+  username(fallback = "" )
+})
 bindings <- list(
   t = ~format( Sys.time(), "%H:%M:%S" ), 
   v = ~paste(version$major, version$minor, sep="."), 
   V = ~paste0(version$major, ".", version$minor, "~", version[["svn rev"]]), 
-  u = ~username(), 
+  u = ~.username(), 
   g = ~.gh_username(), 
   m = ~capture.output(print(mem_used())), 
   w = ~getwd()
