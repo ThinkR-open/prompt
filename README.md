@@ -47,7 +47,7 @@ expand_prompt( ~ "[{m}] {t} {w}> ")
 Installation
 ------------
 
-    install_github( "ThinkRstat/prompt" )
+    install_github( "ThinkR-open/prompt" )
 
 Initial ideas
 -------------
